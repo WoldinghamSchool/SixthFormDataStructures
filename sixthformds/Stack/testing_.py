@@ -36,13 +36,15 @@ def instantiate_stack(size: Optional[int], cl: Type[abstract_base_.AbstractStack
     except TypeError as e:
         success = False
         warn("Warning: Encountered error when attempting to instantiate Stack class from Stacks.stack")
-        warnmsg = """This is most likely because the implementation of the Stack class in Stacks/stacks.py does not yet implement each of the four methods that are necessary for stacks:
+        warnmsg = f"""
+        This is most likely because the implementation of the Stack class in Stacks/stacks.py 
+        does not yet implement each of the four methods that are necessary for stacks:
         * isFull
         * push
         * pop
         * isEmpty
 
-        The abstract base class for stacks is danielsdatastructures.Stacks.AbstractStack.
+        The abstract base class for stacks is {meta_.__name__}.Stacks.AbstractStack.
         You may extend this class (implementing the four methods above) yourself.
         """
         warn(warnmsg)
