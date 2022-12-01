@@ -1,7 +1,7 @@
 from setuptools import find_packages
 from distutils.core import setup
 
-from . import meta_
+from .sixthformds import meta_
 
 __version__ = meta_.__version__
 __name__    = meta_.__name__
