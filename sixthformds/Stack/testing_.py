@@ -77,7 +77,7 @@ def initialemptiness_(s : Type[abstract_base_.AbstractStack], size : Optional[in
         return True, "Success"
     else:
         return False, f"Failed test: Newly created stack returned isEmpty == False."
-def initialfullness_(s, size : Optional[int]):
+def initialfullness_(s : abstract_base_.AbstractStack, size : Optional[int]) -> Tuple[bool, str]:
     """Tests the second Stack invariant: a new Stack should not be full.
     
     Parameters
@@ -106,7 +106,7 @@ def initialfullness_(s, size : Optional[int]):
         return True, "Stack of capacity 0 created."
     else:
         return False, f"Failed test: Newly created stack returned isFull == True."
-def proceduralfullness_(s: abstract_base_.AbstractStack, size : Optional[int]):
+def proceduralfullness_(s: abstract_base_.AbstractStack, size : Optional[int]) -> Tuple[bool, str]:
     """Tests the third Stack invariant: a Stack should remain unfull after pushing fewer times than its capacity, if a capacity has been specified.
     
     Parameters
@@ -146,7 +146,7 @@ def proceduralfullness_(s: abstract_base_.AbstractStack, size : Optional[int]):
         return True, "Since size=None, the stack can never be full."
     else:
         return False, f"Failed test: stack was not full after maxsize={size} pushes."
-def filo_(s, size):
+def filo_(s : abstract_base_.AbstractStack, size : Optional[int]) -> Tuple[bool, str]:
     """Tests the fifth Stack invariant: a Stack is a last-in-first-out data structure.
     
     Parameters
@@ -170,20 +170,20 @@ def filo_(s, size):
     """                                                                                                  
     while not s.isEmpty():
         s.pop()
-    print("Emptied stack.")
+    if meta_.__verbose__: print("Emptied stack.")
 
     n = 5 if size is None else size
 
     for i in range(n):
         s.push(i)
     
-    for j in range(4,0,-1):
+    for j in range(n-1,-1,-1):
         x = s.pop()
         if x != j:
             return False, "Failed test: stack did not maintain LIFO ordering."
     return True, "Success"
         
-def proceduralemptiness_(s, size):
+def proceduralemptiness_(s : abstract_base_.AbstractStack, size : Optional[int]) -> Tuple[bool, str]:
     """Tests the fourth Stack invariant: a Stack should remain unempty after popping fewer times than had previously been pushed.
     
     Parameters
@@ -229,7 +229,7 @@ stack_tests = [
     filo_,
 ]
 
-def test_invariants(s : abstract_base_.AbstractStack, size : Optional[int]):
+def test_invariants(s : abstract_base_.AbstractStack, size : Optional[int]) -> bool:
     for t in stack_tests:
         passed, msg = base_testing_.test(f=t, s=s, size=size)
         if not passed:
