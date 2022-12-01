@@ -104,7 +104,7 @@ def initialfullness_(s, size : Optional[int]):
         return True, "Stack of capacity 0 created."
     else:
         return False, f"Failed test: Newly created stack returned isFull == True."
-def proceduralfullness_(s, size):
+def proceduralfullness_(s: abstract_base_.AbstractStack, size : Optional[int]):
     """Tests the third Stack invariant: a Stack should remain unfull after pushing fewer times than its capacity, if a capacity has been specified.
     
     Parameters
@@ -131,7 +131,8 @@ def proceduralfullness_(s, size):
     * The passed stack is assumed to be empty initially. That is, there is an assumption that is not checked within the method that `s.isEmpty() == True`.
     * 5 elements are pushed and a warning potentially displayed (depending on meta_.__verbose_testing__) if `size is None`. 
     """                                                                                                  
-    for i in range(size):
+    n = 5 if size is None else max(5, size)
+    for i in range(n):
         if not s.isFull():
             s.push(i)
         else:
