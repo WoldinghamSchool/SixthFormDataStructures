@@ -16,10 +16,11 @@ This repository provides a Python library `sixthformds` in the corresponding fol
 The file `sixthformds/meta_.py` contains some information about the package that any student or programmer forking this package is encouraged to personalise. In fact, each student is encouraged to change the package name from `sixthformds` to something more personal. To achieve this, the following changes need to be made:
 * the folder `sixthformds` needs to be renamed
 * the line `__name__ = "sixthformds"` in `sixthformds/__init__.py` needs to be changed to reflect the change of folder name. 
+* You need to keep the variables `__name__`, `__version__` and `__author__` up-to-date in `setup.py`. Students are encouraged to update `__version__` as they update their fork of the repository. 
 
 The personalisation options in `sixthformds/meta_.py` are the following:
-* `__author__`
-* `__name__`
-* `__version__`
-* `__testing__`
-Students are encouraged to update `__version__` as they update their fork of the repository. `__testing__` controls whether the library should test an implementation of these data structures when they are imported within any code using this library. `__name__` **must** be identical to the name of the folder containing the file, so if one of the two is changed the other must be, too. 
+* `__author__           : str`
+* `__name__             : str`
+* `__testing__          : bool`
+* `__verbose_testing__  : bool`
+`__testing__` controls whether the library should test an implementation of these data structures when they are imported within any code using this library. `__verbose_testing__` controls whether any other text besides warnings is printed *if* `__testing__` is set to `True`. `__name__` **must** be identical to the name of the folder containing the file, so if one of the two is changed the other must be, too. 
