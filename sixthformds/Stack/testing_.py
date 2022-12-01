@@ -164,6 +164,7 @@ def filo_(s, size):
     """                                                                                                  
     while not s.isEmpty():
         s.pop()
+    print("Emptied stack.")
 
     n = 5 if size is None else max(size, 5)
 
@@ -174,6 +175,7 @@ def filo_(s, size):
         x = s.pop()
         if x != j:
             return False, "Failed test: stack did not maintain LIFO ordering."
+    return True, "Success"
         
 def proceduralemptiness_(s, size):
     """Tests the fourth Stack invariant: a Stack should remain unempty after popping fewer times than had previously been pushed.
