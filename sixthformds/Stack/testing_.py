@@ -231,4 +231,4 @@ def test_invariants(s : abstract_base_.AbstractStack, size : Optional[int]):
             return False
         elif msg != "Success":
             warn(msg)
-        return True
+    return True
