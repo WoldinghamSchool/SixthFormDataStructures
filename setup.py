@@ -2,7 +2,7 @@ from setuptools import find_packages
 from distutils.core import setup
 
 #=====Personalise here!=====#
-__version__ = "0.0.3"       #
+__version__ = "0.0.4"       #
 __name__    = "sixthformds" #
 __author__  = "Daniel Sääw" #
 #===========================#

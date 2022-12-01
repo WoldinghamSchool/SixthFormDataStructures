@@ -223,7 +223,7 @@ stack_tests = [
 
 def test_invariants(s : abstract_base_.AbstractStack, size : Optional[int]):
     for t in stack_tests:
-        passed, msg = base_testing_.test(t, size)
+        passed, msg = base_testing_.test(test=t, size=size)
         if not passed:
             warn(msg)
             return False
