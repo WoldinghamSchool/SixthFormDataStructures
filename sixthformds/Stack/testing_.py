@@ -131,7 +131,10 @@ def proceduralfullness_(s: abstract_base_.AbstractStack, size : Optional[int]):
     * The passed stack is assumed to be empty initially. That is, there is an assumption that is not checked within the method that `s.isEmpty() == True`.
     * 5 elements are pushed and a warning potentially displayed (depending on meta_.__verbose_testing__) if `size is None`. 
     """                                                                                                  
-    n = 5 if size is None else max(5, size)
+    if size is None:
+        return True, "Since size=None, the stack can never be full."
+
+    n = int(size)
     for i in range(n):
         if not s.isFull():
             s.push(i)
