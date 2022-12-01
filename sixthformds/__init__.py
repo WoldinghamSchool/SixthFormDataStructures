@@ -4,7 +4,6 @@ A package that provides abstract base classes for various data structures to be 
 """
 from . import meta_
 
-__version__ = meta_.__version__
 __name__    = meta_.__name__
 __author__  = meta_.__author__
 __testing__ = meta_.__testing__
