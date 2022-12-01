@@ -170,7 +170,7 @@ def filo_(s : abstract_base_.AbstractStack, size : Optional[int]) -> Tuple[bool,
     """                                                                                                  
     while not s.isEmpty():
         s.pop()
-    if meta_.__verbose__: print("Emptied stack.")
+    if meta_.__verbose_testing__: print("Emptied stack.")
 
     n = 5 if size is None else size
 
