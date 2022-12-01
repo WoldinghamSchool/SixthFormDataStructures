@@ -49,13 +49,15 @@ def instantiate_stack(size: Optional[int], cl: Type[abstract_base_.AbstractStack
         return None, success
 
 
-def initialemptiness_(s : Type[abstract_base_.AbstractStack]) -> Tuple[bool, str]:
+def initialemptiness_(s : Type[abstract_base_.AbstractStack], size : Optional[int]) -> Tuple[bool, str]:
     """Tests the first Stack invariant: a new Stack should be empty.
     
     Parameters
     ----------
     s : Type[abstract_base_.AbstractStack]
         The stack instance to undergo testing.
+    size : Optional[int]
+        The (optional) capacity of the stack.
     
     Returns
     -------
@@ -73,13 +75,15 @@ def initialemptiness_(s : Type[abstract_base_.AbstractStack]) -> Tuple[bool, str
         return True, "Success"
     else:
         return False, f"Failed test: Newly created stack returned isEmpty == False."
-def initialfullness_(s):
+def initialfullness_(s, size : Optional[int]):
     """Tests the second Stack invariant: a new Stack should not be full.
     
     Parameters
     ----------
     s : Type[abstract_base_.AbstractStack]
         The stack instance to undergo testing.
+    size: Optional[int]
+        The (optional) capacity of the stack.
     
     Returns
     -------
@@ -96,6 +100,8 @@ def initialfullness_(s):
     """                                                                                                  
     if not s.isFull():
         return True, "Success"
+    elif size == 0:
+        return True, "Stack of capacity 0 created."
     else:
         return False, f"Failed test: Newly created stack returned isFull == True."
 def proceduralfullness_(s, size):
@@ -221,4 +227,6 @@ def test_invariants(s : abstract_base_.AbstractStack, size : Optional[int]):
         if not passed:
             warn(msg)
             return False
+        elif msg != "Success":
+            warn(msg)
         return True
