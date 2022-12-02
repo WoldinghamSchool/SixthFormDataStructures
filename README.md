@@ -7,7 +7,7 @@ Anyone may fork this repository and implement the abstract data types provided.
 
 In particular, the sixth-form Computer-Science students of Woldingham School are bound to do this.
 
-The repository has been set up to provide a Python library with abstract classes representing verious abstract data structures; with skeleton files providing classes implementing these in different ways. You can install this library using `python -m pip install git+https://www.github.com/WoldinghamSchool/SixthFormDataStructures.git`.
+The repository has been set up to provide a Python library with abstract classes representing verious abstract data structures; with skeleton files providing classes implementing these in different ways. You can install this library using `python -m pip install git+https://www.github.com/WoldinghamSchool/SixthFormDataStructures.git`, replacing this address with the repository address of whatever fork you make of this project for yourself.
 
 ## Structure
 
@@ -24,3 +24,12 @@ The personalisation options in `sixthformds/meta_.py` are the following:
 * `__testing__          : bool`
 * `__verbose_testing__  : bool`
 `__testing__` controls whether the library should test an implementation of these data structures when they are imported within any code using this library. `__verbose_testing__` controls whether any other text besides warnings is printed *if* `__testing__` is set to `True`. `__name__` **must** be identical to the name of the folder containing the file, so if one of the two is changed the other must be, too. 
+
+## Extensions
+
+You may of course extend this library however you wish. Here are a few suggestions:
+* add more data structures! Go ham! B-Trees, Fibonacci Heaps, Red and black trees, the world is your oyster. For an, essentially exhaustive, list of useful data Structures, refer to 
+    * Cormen, Leiserson, Rivest and Stein: Introduction to Algorithms, MIT Press, 3rd Edition
+* add more methods to classes! This is all well and good. But why can't I print my Stack, Queue or list neatly? Would it not be much nicer if I could write some code to display my graph? Python allows you to make any class of objects printable!!!!!! Just add a method `__str__(self)` to a class which returns a string representation of your object.
+* Improve code quality! This is your chance to learn how docstrings and type hints work in Python--these are things that professionals should be doing but are often too lazy to do.
+* Add algorithms! Why stop at basic data structures? You can try to implement sorting algorithms for lists or traversal algorithms for graphs--the possibilities are endless.
